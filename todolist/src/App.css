@@ -1,0 +1,22 @@
+
+
+.jit{
+    min-height:50px;
+    background-color: aqua;
+    border-style: solid;
+}
+
+.large-label{
+    font-size:20px
+}
+
+
+.checkbox-xl{
+    scale:1.5
+}
+
+.strike-through{
+    text-decoration: line-through;
+}
+
+
