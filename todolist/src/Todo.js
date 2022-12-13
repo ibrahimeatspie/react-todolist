@@ -4,17 +4,36 @@ import React, {useState, useRef, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-export default function Todo({task, checked}) {
+export default function Todo({task, checked, id, setTodos}) {
 
   const [isChecked, setIsChecked] = useState(checked)
 
   
 
   function changeCheck(){
+    console.log(id)
     setIsChecked(prev=>{
       console.log("Previous state: "+prev+" new state: "+!prev)
+      //also have to update the state of the original list of todobjects
+      
       return !prev
     })
+
+    setTodos(prev=>{
+      let todoToChange;
+      for (let i =0; i < prev.length; i++){
+        if (prev[i].id == id){
+          todoToChange = i
+        }
+      }
+      let oldPrev = [...prev]
+      console.log(oldPrev[todoToChange])
+      oldPrev[todoToChange].checked = !oldPrev[todoToChange].checked
+      return oldPrev
+
+    })
+
+    
 
   }
 

@@ -3,9 +3,11 @@ import './App.css';
 import Todo from './Todo.js'
 import React, {useState, useRef, useEffect} from 'react';
 import TodoList from './TodoList';
+import { v4 as uuidv4 } from 'uuid';
+
 
 const LOCAL_STORAGE_KEY = 'todoApp.todos'
-
+//uuidv4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
 
 function App() {
 
@@ -25,7 +27,7 @@ function App() {
   }, [todos])
   //change our todos when we add a todo
   function addTodo(){
-    const todo_obj = {task: inputRef.current.value, checked: false}
+    const todo_obj = {task: inputRef.current.value, checked: false, id: uuidv4()}
     setTodos(prev=>{
       
 
@@ -52,10 +54,8 @@ function App() {
             
         </div>
       <div className="container" id="tasks">
-      <Todo task='take out trash' checked={true}/>
-      <Todo task='eat dog food' checked={false}/>
-      <Todo task='eat food' checked={true}/>
-      <TodoList todos={todos} />
+     
+      <TodoList todos={todos} setTodos={setTodos} />
        
     </div>
 
