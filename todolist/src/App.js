@@ -33,8 +33,9 @@ function App() {
 
       return [...prev,todo_obj]
     })
-    console.log(todos)
-    //console.log(inputRef.current.value)
+    inputRef.current.value=''
+    
+
   }
 
   return (

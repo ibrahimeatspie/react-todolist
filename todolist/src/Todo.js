@@ -10,25 +10,19 @@ export default function Todo({task, checked, id, setTodos}) {
 
   
   function handleDelete(){
-    //console.log("Delet")
     setTodos(prev=>{
-      console.log(prev)
       let prevTodos = [...prev]
       let newTodos = []
-      let todoToDel;
       //delete the current todo
       for (let i = 0; i<prevTodos.length;i++){
-        //console.log(prevTodos[i])
         
         if (prevTodos[i].id == id){
           continue
-         //console.log("match found")
 
         }else{
           newTodos.push(prevTodos[i])
         }
       }
-       // console.log(todoToDel)
         
         return newTodos
       
@@ -37,10 +31,7 @@ export default function Todo({task, checked, id, setTodos}) {
   }
 
   function changeCheck(){
-    console.log(id)
     setIsChecked(prev=>{
-      console.log("Previous state: "+prev+" new state: "+!prev)
-      //also have to update the state of the original list of todobjects
       
       return !prev
     })
