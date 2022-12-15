@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# React.js To-do List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created using React.js for component driven development, and with Bootstrap for styling.
 
 ## Available Scripts
 
