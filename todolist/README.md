@@ -1,6 +1,6 @@
 # React.js To-do List
 
-!!https://raw.githubusercontent.com/ibrahimeatspie/react-todolist/master/todolist.png
+![Image of Todo-List](https://raw.githubusercontent.com/ibrahimeatspie/react-todolist/master/todolist.png)
 
 This project was created using React.js for component driven development, and with Bootstrap for styling.
 
