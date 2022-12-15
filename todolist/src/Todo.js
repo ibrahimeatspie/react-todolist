@@ -13,7 +13,6 @@ export default function Todo({task, checked, id, setTodos}) {
     setTodos(prev=>{
       let prevTodos = [...prev]
       let newTodos = []
-      //delete the current todo
       for (let i = 0; i<prevTodos.length;i++){
         
         if (prevTodos[i].id == id){
@@ -23,7 +22,7 @@ export default function Todo({task, checked, id, setTodos}) {
           newTodos.push(prevTodos[i])
         }
       }
-        
+        console.log(newTodos)
         return newTodos
       
       
@@ -31,12 +30,10 @@ export default function Todo({task, checked, id, setTodos}) {
   }
 
   function changeCheck(){
-    setIsChecked(prev=>{
-      
-      return !prev
-    })
 
+    
     setTodos(prev=>{
+      console.log(prev)
       let todoToChange;
       for (let i =0; i < prev.length; i++){
         if (prev[i].id == id){
@@ -50,15 +47,26 @@ export default function Todo({task, checked, id, setTodos}) {
 
     })
 
+    setIsChecked(prev=>{
+      
+      return !prev
+    })
+
+
     
 
   }
-
-  if (isChecked){
+  
+  if (checked){
+    console.log(isChecked, task)
+    setTodos(prev=>{
+      console.log(prev)
+      return prev
+    })
 
     return (
 
-      <div className="row mx-1 mb-2 mt-2">
+      <div className="row mx-1 mb-2 mt-2" id={id}>
             <div className="col-10 form-check">
               <input className="form-check-input checkbox-xl" type="checkbox" value="" id="checkbox-3" onChange={changeCheck} checked/>
               <label className="mx-2 form-check-label large-label " for="checkbox-3"><span className="strike-through">{task}</span></label>
@@ -74,12 +82,13 @@ export default function Todo({task, checked, id, setTodos}) {
 
   }
   else{
+    console.log(isChecked, task)
     return (
 
       
       
 
-      <div className="row mx-1 mb-2 mt-2">
+      <div className="row mx-1 mb-2 mt-2" id={id}>
             <div className="col-10 form-check">
               <input className="form-check-input checkbox-xl" type="checkbox" value="" id="checkbox-3" onChange={changeCheck}/>
               <label className="mx-2 form-check-label large-label " for="checkbox-3">{task}</label>

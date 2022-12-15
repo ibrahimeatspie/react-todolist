@@ -7,35 +7,28 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 const LOCAL_STORAGE_KEY = 'todoApp.todos'
-//uuidv4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
 
 function App() {
 
   const [todos, setTodos] = useState([])
   const inputRef = useRef()
-  //todos starts out as empty
-  //load up our state with todos from our localstorage
+
   useEffect(()=>{
     const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-    
     setTodos(storedTodos)
   }, [])
-  //when we add to our todos, add it to the local storage
+
   useEffect(()=>{
 
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
   }, [todos])
-  //change our todos when we add a todo
+
   function addTodo(){
     const todo_obj = {task: inputRef.current.value, checked: false, id: uuidv4()}
     setTodos(prev=>{
-      
-
       return [...prev,todo_obj]
     })
     inputRef.current.value=''
-    
-
   }
 
   return (
